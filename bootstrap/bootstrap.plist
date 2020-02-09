@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>version</key>
+	<integer>1</integer>
+	<key>tar</key>
+	<string>https://repo.fugujb.dev/bootstrap/tar</string>
+	<key>gzip</key>
+	<string>https://repo.fugujb.dev/bootstrap/gzip</string>
+	<key>bootstrap</key>
+	<string>https://repo.fugujb.dev/bootstrap/bootstrap.tar.gz</string>
+	<key>installScript</key>
+	<string>https://repo.fugujb.dev/bootstrap/install.sh</string>
+	<key>debs</key>
+	<array>
+		<string>https://repo.chimera.sh/debs/org.swift.libswift_5.0-electra2_iphoneos-arm.deb</string>
+		<string>https://repo.chimera.sh/debs/org.coolstar.sileo_1.6.0_iphoneos-arm.deb</string>
+		<string>https://repo.chimera.sh/debs/cydia_2.3_iphoneos-arm.deb</string>
+		<string>https://repo.fugujb.dev/debs/substitute/com.ex.substitute-0.100.1-fugu.deb</string>
+		<string>https://repo.fugujb.dev/debs/unsandbox/dev.fugujb.unsandbox.1.0.deb</string>
+	</array>
+</dict>
+</plist>
