@@ -43,9 +43,13 @@ elif [ "$1" = "respringNow" ]; then
     echo "$EXE: Launching substitute..."
     /etc/rc.d/substitute
     
+    /bin/rm /System/Library/Substitute/DynamicLibraries/Unsandbox.dylib
+    
     echo "$EXE: Injecting Unsandbox..."
     PID=$(/sbin/launchctl list com.apple.cfprefsd.xpc.daemon | /usr/bin/grep PID | /usr/bin/xargs | /bin/sed -e "s/PID = //" -e "s/;//")
-    /System/Library/Substitute/Helpers/dlopen_in_pid $PID /System/Library/Substitute/Helpers/bundle-loader.dylib
+    /System/Library/Substitute/Helpers/dlopen_in_pid $PID /System/Library/Substitute/Helpers/bundle-loader.dylib &
+    
+    sleep 1
     
     echo "$EXE: Respringing..."
     /usr/bin/killall -SIGTERM SpringBoard
