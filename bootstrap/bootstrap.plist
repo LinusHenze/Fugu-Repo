@@ -14,8 +14,8 @@
 	<string>https://repo.fugujb.dev/bootstrap/install.sh</string>
 	<key>debs</key>
 	<array>
-		<string>https://repo.chimera.sh/debs/org.coolstar.sileo_1.6.0_iphoneos-arm.deb</string>
-		<string>https://repo.chimera.sh/debs/cydia_2.3_iphoneos-arm.deb</string>
+		<string>https://repo.fugujb.dev/debs/Sileo/org.coolstar.sileo_1.7.2_iphoneos-arm.deb</string>
+		<string>https://repo.fugujb.dev/debs/cydia-compat/cydia_2.3_iphoneos-arm.deb</string>
 		<string>https://repo.fugujb.dev/debs/substitute/com.ex.substitute-0.100.1-fugu.deb</string>
 		<string>https://repo.fugujb.dev/debs/unsandbox/dev.fugujb.unsandbox.1.0.deb</string>
 	</array>
