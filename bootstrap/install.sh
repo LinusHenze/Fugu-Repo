@@ -24,7 +24,7 @@ if [ "$1" = "noRespring" ]; then
     /usr/bin/dpkg -i *
     
     echo "$EXE: Adding chimera repo..."
-    echo "deb https://repo.chimera.sh/ ./" > /etc/apt/sources.list.d/chimera.list
+    cat /etc/apt/sileo.list.d/sileo-base.sources | sed -e 's_https://repo.getsileo.app/_https://repo.chimera.sh/_' | tee /etc/apt/sileo.list.d/sileo-base.sources
     
     echo "$EXE: Launching services..."
     cd /Library/LaunchDaemons
@@ -57,6 +57,7 @@ elif [ "$1" = "respringNow" ]; then
     /usr/bin/touch /.Fugu_installed
     
     echo "$EXE: Stage 2 done"
+    
     exit 0
 else
     # WTF?
