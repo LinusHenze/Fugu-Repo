@@ -13,6 +13,17 @@ if [ "$1" = "noRespring" ]; then
     # Stage 1
     echo "$EXE: Stage 1, not respringing"
     
+    # Rename snapshot on /, if required
+    # Thanks to @brandonplank (https://github.com/brandonplank)!
+    # See https://github.com/LinusHenze/Fugu/issues/7
+    echo "$EXE: Renaming snapshot..."
+    SNAPSHOT=$(/usr/bin/snappy -l -f / | /usr/bin/grep com.apple.os.update)||SNAPSHOT=""
+    if [ ! -z "$SNAPSHOT" ]
+    then
+        NEWNAME=$(/bin/echo "$SNAPSHOT" | /usr/bin/sed -e "s/com.apple.os.update/Fugu.orig.fs.backup/")
+        /usr/bin/snappy -f / -r "$SNAPSHOT" -t "$NEWNAME"
+    fi
+    
     echo "$EXE: Generating SSH Host Keys..."
     /usr/bin/ssh-keygen -A
     
@@ -22,9 +33,6 @@ if [ "$1" = "noRespring" ]; then
     echo "$EXE: Installing debs..."
     cd /debs
     /usr/bin/dpkg -i *
-    
-    echo "$EXE: Adding chimera repo..."
-    cat /etc/apt/sileo.list.d/sileo-base.sources | sed -e 's_https://repo.getsileo.app/_https://repo.chimera.sh/_' | tee /etc/apt/sileo.list.d/sileo-base.sources
     
     echo "$EXE: Launching services..."
     cd /Library/LaunchDaemons
